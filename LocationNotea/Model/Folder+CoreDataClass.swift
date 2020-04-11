@@ -32,7 +32,7 @@ public class Folder: NSManagedObject {
     }
     
     var notesSorted: [Note] {
-        let sortDescriptor = NSSortDescriptor(key: "dateUpdate", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "dataUpdate", ascending: false)
         return self.notes?.sortedArray(using: [sortDescriptor]) as! [Note]
         
     }

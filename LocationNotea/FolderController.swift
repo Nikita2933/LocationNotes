@@ -18,15 +18,16 @@ class FolderController: UITableViewController {
             return notes
         }
     }
-    var newNote: Note?
+    var selectedNote: Note?
     @IBAction func pushAddAction(_ sender: Any) {
-         newNote = Note.newNote(name: "NewName", inFolder: folder)
+         selectedNote = Note.newNote(name: "", inFolder: folder)
         performSegue(withIdentifier: "goToNote", sender: true)
+        CoreDataManager.sharedInstance.saveContext()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToNote" {
-            (segue.destination as! NoteController).note = newNote
+            (segue.destination as! NoteController).note = selectedNote
         }
     }
     
@@ -38,15 +39,12 @@ class FolderController: UITableViewController {
         } else {
             navigationItem.title = "All Notes"
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -69,6 +67,14 @@ class FolderController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let noteInCell = notesActual[indexPath.row]
+        selectedNote = noteInCell
+        
+        performSegue(withIdentifier: "goToNote", sender: self)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -78,17 +84,21 @@ class FolderController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+             let noteInCell = notes[indexPath.row]
+            
+            CoreDataManager.sharedInstance.managedObjectContext.delete(noteInCell)
+            CoreDataManager.sharedInstance.saveContext()
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

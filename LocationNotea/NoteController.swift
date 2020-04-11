@@ -30,6 +30,60 @@ class NoteController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if textName.text == "" && textDescription.text == "" {
+            CoreDataManager.sharedInstance.managedObjectContext.delete(note!)
+            CoreDataManager.sharedInstance.saveContext()
+            return
+        }
+        
+        if note?.name != textName.text || note?.textDescription != textDescription.text {
+            note?.dataUpdate = Date()
+        }
+        
+        note?.name = textName.text
+        note?.textDescription = textDescription.text
+        
+        CoreDataManager.sharedInstance.saveContext()
+    }
+    
+    let imagePicker: UIImagePickerController = UIImagePickerController()
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 && indexPath.section == 0 {
+            let alertController = UIAlertController(title: "", message: "Image for item", preferredStyle: UIAlertController.Style.actionSheet)
+            
+            let a1Camera = UIAlertAction(title: "Make a photo", style: UIAlertAction.Style.default) { (alert) in
+                self.imagePicker.sourceType = .camera
+                self.imagePicker.delegate = self
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+            alertController.addAction(a1Camera)
+            
+            let a2Photo = UIAlertAction(title: "Library", style: UIAlertAction.Style.default) { (alert) in
+                self.imagePicker.sourceType = .savedPhotosAlbum
+                self.imagePicker.delegate = self
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+            alertController.addAction(a2Photo)
+            
+            if self.imageView.image != nil {
+            let a3Delete = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (alert) in
+                self.imageView = nil
+            }
+            alertController.addAction(a3Delete)
+            }
+            
+            let a4Cancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { (alert) in
+                
+            }
+            alertController.addAction(a4Cancel)
+
+            present(alertController, animated: true, completion: nil)
+        }
+    }
 
     
     /*
@@ -87,4 +141,16 @@ class NoteController: UITableViewController {
     }
     */
 
+}
+
+extension NoteController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        imageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -45,7 +45,7 @@
 		1127992F240960DD0037CDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11279931240960DD0037CDF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		112CCC9B243B7FC300CDEACF /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
-		1189FFD02440B5D2004C66AA /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; };
+		1189FFD02440B5D2004C66AA /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		1189FFD22440C8C1004C66AA /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		11DC6E23242CD6FF00096857 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,8 +100,8 @@
 				11198EFB2427B796001079B1 /* Model */,
 				11279920240960DB0037CDF5 /* AppDelegate.swift */,
 				1189FFD02440B5D2004C66AA /* FolderController.swift */,
-				1189FFD22440C8C1004C66AA /* NoteController.swift */,
 				112CCC9B243B7FC300CDEACF /* FoldersController.swift */,
+				1189FFD22440C8C1004C66AA /* NoteController.swift */,
 				11279922240960DB0037CDF5 /* SceneDelegate.swift */,
 				11279926240960DB0037CDF5 /* Main.storyboard */,
 				1127992C240960DD0037CDF5 /* Assets.xcassets */,
