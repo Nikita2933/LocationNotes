@@ -23,6 +23,7 @@ class NoteController: UITableViewController {
 
         textName.text = note?.name
         textDescription.text = note?.textDescription
+        imageView.image = note?.imageActual
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,7 +34,7 @@ class NoteController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        if textName.text == "" && textDescription.text == "" {
+        if textName.text == "" && textDescription.text == "" && imageView.image == nil{
             CoreDataManager.sharedInstance.managedObjectContext.delete(note!)
             CoreDataManager.sharedInstance.saveContext()
             return
@@ -45,6 +46,7 @@ class NoteController: UITableViewController {
         
         note?.name = textName.text
         note?.textDescription = textDescription.text
+        note?.imageActual = imageView.image
         
         CoreDataManager.sharedInstance.saveContext()
     }
@@ -70,8 +72,8 @@ class NoteController: UITableViewController {
             alertController.addAction(a2Photo)
             
             if self.imageView.image != nil {
-            let a3Delete = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (alert) in
-                self.imageView = nil
+                let a3Delete = UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive) { (alert) in
+                    self.imageView.image = nil
             }
             alertController.addAction(a3Delete)
             }

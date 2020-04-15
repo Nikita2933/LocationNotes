@@ -61,9 +61,15 @@ class FolderController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellNote", for: indexPath)
 
         let noteInCell = notesActual[indexPath.row]
+        
         cell.textLabel?.text = noteInCell.name
         cell.detailTextLabel?.text = noteInCell.dataUpdateString
-
+        if noteInCell.imageSmall != nil {
+            cell.imageView?.image =  UIImage(data: noteInCell.imageSmall!)
+        } else {
+            cell.imageView?.image = nil
+        }
+        
         return cell
     }
     
