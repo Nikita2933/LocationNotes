@@ -32,8 +32,13 @@ class NoteController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
+    @IBAction func pushSave(_ sender: Any) {
+        saveNote()
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    func saveNote(){
         if textName.text == "" && textDescription.text == "" && imageView.image == nil{
             CoreDataManager.sharedInstance.managedObjectContext.delete(note!)
             CoreDataManager.sharedInstance.saveContext()
@@ -57,12 +62,16 @@ class NoteController: UITableViewController {
         if indexPath.row == 0 && indexPath.section == 0 {
             let alertController = UIAlertController(title: "", message: "Image for item", preferredStyle: UIAlertController.Style.actionSheet)
             
-            let a1Camera = UIAlertAction(title: "Make a photo", style: UIAlertAction.Style.default) { (alert) in
+            let cameraAvailable = UIImagePickerController.isCameraDeviceAvailable(.rear)
+            if cameraAvailable == true {
+                let a1Camera = UIAlertAction(title: "Make a photo", style: UIAlertAction.Style.default) { (alert) in
                 self.imagePicker.sourceType = .camera
                 self.imagePicker.delegate = self
                 self.present(self.imagePicker, animated: true, completion: nil)
+                // не работает в симуляторе
+                }
+                alertController.addAction(a1Camera)
             }
-            alertController.addAction(a1Camera)
             
             let a2Photo = UIAlertAction(title: "Library", style: UIAlertAction.Style.default) { (alert) in
                 self.imagePicker.sourceType = .savedPhotosAlbum
