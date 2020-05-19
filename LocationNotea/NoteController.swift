@@ -18,6 +18,10 @@ class NoteController: UITableViewController {
     
     @IBOutlet weak var textDescription: UITextView!
     
+    @IBOutlet weak var labelFolder: UILabel!
+    @IBOutlet weak var labelFolderName: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,11 +29,20 @@ class NoteController: UITableViewController {
         textDescription.text = note?.textDescription
         imageView.image = note?.imageActual
         
+        navigationItem.title = note?.name
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let folder = note?.folder{
+            labelFolderName.text = folder.name
+        } else {
+            labelFolderName.text = "-"
+        }
     }
     
     @IBAction func pushSave(_ sender: Any) {
@@ -59,6 +72,9 @@ class NoteController: UITableViewController {
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.row == 0 && indexPath.section == 0 {
             let alertController = UIAlertController(title: "", message: "Image for item", preferredStyle: UIAlertController.Style.actionSheet)
             
@@ -142,15 +158,16 @@ class NoteController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "goToSelectFolder" {
+            (segue.destination as! SelectFolderController).note = note
+        }
     }
-    */
+    
 
 }
 
