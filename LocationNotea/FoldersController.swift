@@ -39,7 +39,7 @@ class FoldersController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        LocationManager.sharedInstance.requestAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {

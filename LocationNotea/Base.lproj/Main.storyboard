@@ -305,15 +305,15 @@
                                             <segue destination="Lw7-LQ-ESP" kind="show" identifier="goToSelectFolder" id="W1M-Dr-Yzg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="M3r-ZW-fpC" rowHeight="37" style="IBUITableViewCellStyleDefault" id="wyA-6a-Xtb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="M3r-ZW-fpC" rowHeight="37" style="IBUITableViewCellStyleDefault" id="wyA-6a-Xtb">
                                         <rect key="frame" x="0.0" y="507.5" width="375" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wyA-6a-Xtb" id="nFt-oR-qgx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M3r-ZW-fpC">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="37"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="37"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -321,6 +321,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Wqk-7Q-pDE" kind="show" identifier="goToMap" id="BgP-n6-cm9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -350,6 +353,31 @@
             </objects>
             <point key="canvasLocation" x="2933.5999999999999" y="103.89805097451276"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="5hi-Gx-WUp">
+            <objects>
+                <viewController id="Wqk-7Q-pDE" customClass="NoteMapController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wsa-dE-UfK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RRt-2V-RQN">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Db1-IZ-kfN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="ahN-Gc-ZSO"/>
+                    <connections>
+                        <outlet property="mapView" destination="RRt-2V-RQN" id="Ozo-m8-nbg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ipx-Vs-ZqY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3780" y="417.8410794602699"/>
+        </scene>
         <!--Selected Folder-->
         <scene sceneID="Kir-SX-J7j">
             <objects>
@@ -377,7 +405,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfB-we-Qv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3792" y="109"/>
+            <point key="canvasLocation" x="3770" y="-368"/>
         </scene>
         <!--Folders-->
         <scene sceneID="9Lv-vl-cGB">

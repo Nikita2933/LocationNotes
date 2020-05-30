@@ -166,6 +166,9 @@ class NoteController: UITableViewController {
         if segue.identifier == "goToSelectFolder" {
             (segue.destination as! SelectFolderController).note = note
         }
+        if segue.identifier == "goToMap" {
+            (segue.destination as! NoteMapController).note = note
+        }
     }
     
 

@@ -19,9 +19,9 @@ class FolderController: UITableViewController {
         }
     }
     var selectedNote: Note?
-    
     @IBAction func pushAddAction(_ sender: Any) {
          selectedNote = Note.newNote(name: "", inFolder: folder)
+        selectedNote?.addCurrentLocation()
         performSegue(withIdentifier: "goToNote", sender: true)
         CoreDataManager.sharedInstance.saveContext()
     }
