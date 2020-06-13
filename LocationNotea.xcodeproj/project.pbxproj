@@ -22,6 +22,7 @@
 		1127992D240960DD0037CDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1127992C240960DD0037CDF5 /* Assets.xcassets */; };
 		11279930240960DD0037CDF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1127992E240960DD0037CDF5 /* LaunchScreen.storyboard */; };
 		112CCC9C243B7FC300CDEACF /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CCC9B243B7FC300CDEACF /* FoldersController.swift */; };
+		113A198B24953AB2009E2590 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113A198A24953AB2009E2590 /* MapController.swift */; };
 		116BF3FD247444B7004841E7 /* SelectFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BF3FC247444B7004841E7 /* SelectFolderController.swift */; };
 		1189FFD12440B5D2004C66AA /* FolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1189FFD02440B5D2004C66AA /* FolderController.swift */; };
 		1189FFD32440C8C1004C66AA /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1189FFD22440C8C1004C66AA /* NoteController.swift */; };
@@ -48,6 +49,7 @@
 		1127992F240960DD0037CDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11279931240960DD0037CDF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		112CCC9B243B7FC300CDEACF /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
+		113A198A24953AB2009E2590 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		116BF3FC247444B7004841E7 /* SelectFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderController.swift; sourceTree = "<group>"; };
 		1189FFD02440B5D2004C66AA /* FolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		1189FFD22440C8C1004C66AA /* NoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				112CCC9B243B7FC300CDEACF /* FoldersController.swift */,
 				1189FFD22440C8C1004C66AA /* NoteController.swift */,
 				118F44BA2482B42A000AAC07 /* NoteMapController.swift */,
+				113A198A24953AB2009E2590 /* MapController.swift */,
 				116BF3FC247444B7004841E7 /* SelectFolderController.swift */,
 				11279922240960DB0037CDF5 /* SceneDelegate.swift */,
 				11279926240960DB0037CDF5 /* Main.storyboard */,
@@ -207,6 +210,7 @@
 				1189FFD32440C8C1004C66AA /* NoteController.swift in Sources */,
 				11279921240960DB0037CDF5 /* AppDelegate.swift in Sources */,
 				11198F042427B7D3001079B1 /* Note+CoreDataClass.swift in Sources */,
+				113A198B24953AB2009E2590 /* MapController.swift in Sources */,
 				116BF3FD247444B7004841E7 /* SelectFolderController.swift in Sources */,
 				11198F092427B7D3001079B1 /* Folder+CoreDataProperties.swift in Sources */,
 				118F44BB2482B42A000AAC07 /* NoteMapController.swift in Sources */,

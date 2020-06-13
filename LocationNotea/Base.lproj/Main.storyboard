@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J98-2k-LjE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J98-2k-LjE">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,13 +83,13 @@
         <!--Map-->
         <scene sceneID="Nyd-bc-yoD">
             <objects>
-                <viewController id="3vq-jp-Bvy" sceneMemberID="viewController">
+                <viewController id="3vq-jp-Bvy" customClass="MapController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TZT-QO-TPS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u9M-58-Kpi">
-                                <rect key="frame" x="15" y="44" width="343" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
@@ -97,6 +97,9 @@
                         <viewLayoutGuide key="safeArea" id="aGB-oT-1Iw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="elf-Qt-blQ"/>
+                    <connections>
+                        <outlet property="mapView" destination="u9M-58-Kpi" id="DdP-UB-rgc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjq-M2-F2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,7 +216,7 @@
         <!--Name note-->
         <scene sceneID="VXH-f6-0mn">
             <objects>
-                <tableViewController id="QCJ-hY-aW5" customClass="NoteController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="noteSID" id="QCJ-hY-aW5" customClass="NoteController" customModule="LocationNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WiJ-wn-DA1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
